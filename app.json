@@ -1,3 +1,11 @@
 {
+"expo": {
+  "appKey":"CryptoWalletApp",
+
+},
+
   "name": "CryptoWalletApp",
+  "displayName": "CryptoWalletApp"
+
+
 }

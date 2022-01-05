@@ -1,4 +1,12 @@
 {
+"expo": {
+  "appKey":"CryptoWalletApp",
+  "sdkVersion": "44.0.0"
+
+},
+
   "name": "CryptoWalletApp",
-  //"displayName": "CryptoWalletApp"
+  "displayName": "CryptoWalletApp"
+
+
 }

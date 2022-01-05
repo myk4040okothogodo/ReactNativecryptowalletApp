@@ -6,7 +6,7 @@ import Tabs from "./navigation/tabs";
 
 const Stack = createStackNavigator();
 
-const App = () => {
+export default function App() => {
     return (
         <NavigationContainer>
             <Stack.Navigator
@@ -24,4 +24,3 @@ const App = () => {
     )
 }
 
-export default App;
