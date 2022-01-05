@@ -118,7 +118,7 @@ const Tabs = ({ setTradeModalVisibility, isTradeModalVisible}) => {
                       <TabBarCustomButton
                         
                         onPress ={() => tradeTabButtonOnClickHandler()}
-                        {...props}
+                        ...props
                       />
 
                     ),

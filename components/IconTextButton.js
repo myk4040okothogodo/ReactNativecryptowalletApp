@@ -35,9 +35,11 @@ const IconTextButton = ({ label, icon, containerStyle, onPress }) => {
       }}
     >{label}</Text>
 
-    </TouchableOpacity>
+  </TouchableOpacity>
 
   )
 
 
 }
+
+export default  IconTextButton;
