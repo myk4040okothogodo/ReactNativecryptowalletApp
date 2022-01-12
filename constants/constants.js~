@@ -9,9 +9,6 @@ const marketTabs = [
     },
 ]
 
-
-
-
 const COLORS  =  {
  secondary: "blue",
  primary: "white" 

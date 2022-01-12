@@ -22,9 +22,6 @@ const Home = ({getHoldings, getCoinMarket, myHoldings, coins}) => {
     
     let totalWallet = myHoldings.reduce((a,b) => a + (b.total || 0),  0)
     
-    let valueChange = myHoldings.reduce((a, b) => a + (b.holding_value_change_7d || 0), 0)
-    let percChange = valueChange / (totalWallet - ValueChange) * 100
-    
     function renderWalletINfoSection() {
       return (
         <View
@@ -40,7 +37,7 @@ const Home = ({getHoldings, getCoinMarket, myHoldings, coins}) => {
           <BalanceInfo 
             title="Wallet"
             displayAmount="45,000"
-            changePct ={percChange}
+            changePct ={2.30}
             containerStyle={{
               marginTop: 50
             

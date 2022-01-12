@@ -1,13 +1,13 @@
-import React from 'react';
+import React,{useEffect, useRef} from 'react';
 import { View, Animated } from 'react-native';
 import { COLORS, SIZES, icons } from '../constants';
 import { connect } from 'react-redux';
-import {IconTextButton}  from "../components";
+import { IconTextButton }  from "../components";
 
 const MainLayout = ({ children, isTradeModalVisible }) => {
   
-  const modalAnimatedValue = React.useRef(new Animated.Value(0)).current;
-  React.useEffect(() => {
+  const modalAnimatedValue = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
     if(isTradeModalVisible){
        Animated.timing(modalAnimatedValue, {
        
@@ -45,8 +45,10 @@ const MainLayout = ({ children, isTradeModalVisible }) => {
                top: 0,
                left: 0,
                right: 0,
-               bottom:0
+               bottom:0,
+               backgroundColor: COLORS.transparentBlack
              }}
+             opacity={modalAnimatedValue}
           />
       }
       {/* Modal */}

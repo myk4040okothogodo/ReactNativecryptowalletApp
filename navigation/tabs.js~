@@ -1,8 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
-
-import { setTradeModalVisibility} from "../stores/tab/tabActions";
+import { setTradeModalVisibility } from "../stores/tab/tabActions";
 import {
     TouchableOpacity,
 } from "react-native";
@@ -116,9 +114,9 @@ const Tabs = ({ setTradeModalVisibility, isTradeModalVisible}) => {
                       },
                     tabBarButton: (props) => (
                       <TabBarCustomButton
-                        
+                        {...props}
                         onPress ={() => tradeTabButtonOnClickHandler()}
-                        ...props
+                  
                       />
 
                     ),
@@ -178,7 +176,6 @@ const Tabs = ({ setTradeModalVisibility, isTradeModalVisible}) => {
     )
 }
 
-//export default Tabs;
 
 function mapStateToProps(state) {
   return{

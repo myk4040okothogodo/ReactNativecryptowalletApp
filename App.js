@@ -16,7 +16,7 @@ const store = createStore(
     applyMiddleware(thunk)
 )
 
-export default function App() {
+const App = () => {
     return (
        <Provider store={store}>
         <NavigationContainer>
@@ -36,3 +36,4 @@ export default function App() {
     )
 }
 
+export default App;
