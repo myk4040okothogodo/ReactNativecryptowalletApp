@@ -105,7 +105,7 @@ export  function getCoinMarket(currency="usd", orderBy="market_cap_desc",sparkli
     return dispatch => {
         dispatch(getCoinMarketBegin())
 
-        let apiUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=${orderBy}&per_page=${perPage}&page=${page}&sparkline=${sparkline}&price_change_percentage=${priceChangePerc}`
+        let apiUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=${orderBy}&per_page=${perPage}&page=${page}&sparkline=${sparkline}&price_change_percentage=${priceChangePerc}`
         
 
         return axios ({

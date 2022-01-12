@@ -45,7 +45,7 @@ export function getHoldings(holdings =[], currency="usd", orderBy="market_cap_de
     }).then((response) => {
     console.log("GetHoldings")
     console.log(response)
-      if (response.state == 200 ){
+      if (response.status == 200 ){
       
          //Message data
          let myHodlings = response.data.map((item) => {
@@ -117,7 +117,7 @@ export  function getCoinMarket(currency="usd", orderBy="market_cap_desc",sparkli
         }).then((response) => {
             console.log("GetCoins")
             console.log(response)
-            if (response.state == 200){
+            if (response.status == 200){
 
                 dispatch(getCoinMarketSuccess(response.data))
             }else {
