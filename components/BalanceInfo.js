@@ -3,7 +3,6 @@ import {
   View,
   Text,
   Image
-
 } from 'react-native';
 import { SIZES, COLORS, FONTS, icons} from "../constants";
 
@@ -22,7 +21,7 @@ const BalanceInfo = ({ title, displayAmount, changePct, containerStyle}) => {
           alignItems: 'flex-end'
         }}
       >
-        <Text style={{...FONTS.h3,color:lightGray3 }}>$</Text>
+        <Text style={{...FONTS.h3,color:COLORS.lightGray3 }}>$</Text>
         <Text style={{marginLeft:SIZES.base, ...FONTS.h2, color: COLORS.white}}>{displayAmount.toLocaleString()}</Text>
         
         <Text style={{color: COLORS.lightGray, ...FONTS.h3}}>USD</Text>
@@ -43,7 +42,7 @@ const BalanceInfo = ({ title, displayAmount, changePct, containerStyle}) => {
               width: 10,
               height: 10,
               alignSelf: 'center',
-              tintClor: (changePct > 0 )? COLORS.lightGreen : COLORS.red,
+              tintColor: (changePct > 0 )? COLORS.lightGreen : COLORS.red,
               transform: (changePct > 0 )? [{ rotate: '45deg'}] : [{rotate: '125deg'}]
           }}
           />
@@ -78,4 +77,4 @@ const BalanceInfo = ({ title, displayAmount, changePct, containerStyle}) => {
   )
 
 }
-export default balanceInfo;
+export default BalanceInfo;
