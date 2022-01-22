@@ -16,6 +16,8 @@ import { Chart, BalanceInfo, IconTextButton } from "../components";
 
 const Home = ({getHoldings, getCoinMarket, myHoldings, coins}) => {
     
+    const [selectedCoin, setSelectedCoin] = React.useState(null)
+
     useFocusEffect(
       React.useCallback(() => {
           getHoldings(holdings = dummyData.holdings)
@@ -42,7 +44,7 @@ const Home = ({getHoldings, getCoinMarket, myHoldings, coins}) => {
           {/* Balance Info*/}
           <BalanceInfo 
             title="Wallet"
-            displayAmount="45,000"
+            displayAmount={totalWallet}
             changePct ={percChange}
             containerStyle={{
               marginTop: 50
@@ -56,7 +58,7 @@ const Home = ({getHoldings, getCoinMarket, myHoldings, coins}) => {
               flexDirection: "row",
               marginTop: 30,
               marginBottom: -15,
-              paddingHorizontal: SIZES.RADIUS  
+              paddingHorizontal: SIZES.radius  
 
             }}
           >
@@ -105,7 +107,7 @@ const Home = ({getHoldings, getCoinMarket, myHoldings, coins}) => {
               marginTop: SIZES.padding *2
 
             }}
-            chartPrices = {coins[0]?.sparkline_in_7d.price}
+            chartPrices = {selectedCoin ? selectedCoin?.sparkline_in_7d?.price : coins[0]?.sparkline_in_7d?.price}
 
         />
         {/* Top Cryptocurrency */}
@@ -141,7 +143,7 @@ const Home = ({getHoldings, getCoinMarket, myHoldings, coins}) => {
                       alignItems: 'center',
                       justifyContent: 'center'  
                     }}
-                 //onPress
+                 onPress = {() => setSelectedCoin(item)}
                 >
                       {/* Logo */}
                           <View
@@ -152,8 +154,8 @@ const Home = ({getHoldings, getCoinMarket, myHoldings, coins}) => {
                               <Image
                               source = {{ uri: item.image }}
                               style = {{
-                                  height:20,
-                                  width: 10
+                                  height:24,
+                                  width: 15
                               }}
                                />
 
@@ -201,6 +203,15 @@ const Home = ({getHoldings, getCoinMarket, myHoldings, coins}) => {
               )
 
           }}
+          ListenFooterComponent = {
+              <View
+                  style={{
+                      marginBottom: 50
+                  }}
+
+            />
+
+          }
          />
         </View>
       </MainLayout>
