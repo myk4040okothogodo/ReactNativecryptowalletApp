@@ -44,18 +44,82 @@ const Chart = ({ containerStyle, chartPrices}) => {
       let date =  `0${selectedDate.getDate()}`.slice(-2)
       let month = `0${selectedDate.getMonth() + 1}`.slice(-2)
       return `${date}/ ${month}`
+    }
+    
+    const formatNumber = (value, roundingPoint) => {
+        if(value > 1e9){
+            return `${(value / 1e9).toFixed(roundinPoint)}B`
+        } else if (value > 1e6){
+            return `${(value / 1e6).toFixed(roundingPoint)}M`
+        } else if (value > 1e3){
+            return `${(value / 1e3).toFixed(roundingPoint)}K`   
+        } else {
+            return value.toFixed(roundingPoint)
+        }
 
     }
+
+    const getYAxisLabelValues = () => {
+        if(chartPrices != undefined) {
+            let minValue = Math.min(...chartPrices)
+            let maxValue = Math.max(...chartPrices) 
+            let midValue = (minValue + maxValue)/2
+
+            let higherMidValue = (maxValue + midValue)/2
+            let lowerMidValue  = (minValue + midValue)/2
+
+            let roundingPoint = 2
+
+            return [
+                formatNumber(maxValue, roundingPoint),
+                formatNumber(minValue, roundingPoint),
+                formatNumber(lowerMidValue, roundingPoint),
+                formatNumber(higherMidValue, roundingPoint)
+
+            ]
+        } else {
+
+            return []
+        }
+    }
+
     return (
       <View
         style = {{ ...containerStyle}}
       >
+          {/* Y Axis Label */}
+        <View
+            style = {{
+                position: 'absolute',
+                left: SIZES.padding,
+                top: 0,
+                bottom: 0,
+                justifyContent: 'space-between'
+            }}
+         >
+         {
+          getYAxisLabelValues().map((item, index) => {
+              return (
+                  <Text
+                      key={index}
+                      style ={{
+                          color: COLORS.lightGray3,
+                          ...FONTS.body4
+                      }}
+                   >
+                      {item}
+                   </Text>
+              )
+            })
+          }
+          </View> 
+          {/* Chart */}
         {
              data.length > 0 &&
              <ChartPathProvider
                data ={{
                     points,
-                    smoothinStrategy: 'bezier'
+                    smoothingStrategy: 'bezier'
                }}
               >
              <ChartPath 
