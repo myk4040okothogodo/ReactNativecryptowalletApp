@@ -78,4 +78,4 @@ const BalanceInfo = ({ title, displayAmount, changePct, containerStyle}) => {
   )
 
 }
-export defaul balanceInfo;
+export default BalanceInfo;
