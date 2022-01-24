@@ -13,6 +13,7 @@ import {
 } from "@rainbow-me/animated-charts";
 import moment from 'moment'; 
 import { SIZES, COLORS, FONTS} from "../constants";
+
 const Chart = ({ containerStyle, chartPrices}) => {
     //Points
     let startUnixTimestamp = moment().subtract(7, 'day').unix()

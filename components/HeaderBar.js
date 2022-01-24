@@ -23,4 +23,4 @@ const HeaderBar = ({ title })  =>{
     )
 }
 
-export default HeadBar;
+export default HeaderBar;

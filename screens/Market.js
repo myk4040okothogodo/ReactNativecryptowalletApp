@@ -23,7 +23,7 @@ const marketTabs = constants.marketTabs.map((marketTab) =>({
 const TabIndicator = ({measureLayout, scrollX }) => {
 
      const inputRange = marketTabs.map((_, i) => i * SIZES.width)
-     const translateX = scrollx.interpolate({
+     const translateX = scrollX.interpolate({
          inputRange,
          outputRange: measureLayout.map(measure => measure.x)
      
@@ -31,10 +31,10 @@ const TabIndicator = ({measureLayout, scrollX }) => {
      return (
          <Animated.View
              style ={{
-                 position: "absolute"
+                 position: "absolute",
                  left: 0,
                  height: "100%",
-                 width: (SIZES.width - (SIZES.radius * 2)) / 2
+                 width: (SIZES.width - (SIZES.radius * 2)) / 2,
                  borderRadius: SIZES.radius,
                  backgroundColor:  COLORS.lightGray,
                  transform: [{
@@ -123,7 +123,7 @@ const Tabs = ({scrollX, onMarketTabPress }) => {
                 
                 </View>
                 
-                </TouchableOPacity>
+                </TouchableOpacity>
             )
         })}
         </View>
@@ -263,8 +263,7 @@ const Market = ({ getCoinMarket, coins}) => {
                                                    data: item.sparkline_in_7d.price   
                                                }
                                            ]
-                                           }
-                                        }}
+                                           }}
                                         width = {100}
                                         height = {60}
                                         chartConfig = {{

@@ -64,4 +64,4 @@ const TabIcon = ({focused, icon , iconStyle, label, isTrade}) => {
 
 }
 
-export default TabIcon
+export default TabIcon;

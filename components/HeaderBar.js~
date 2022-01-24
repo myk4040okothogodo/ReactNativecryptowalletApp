@@ -23,5 +23,6 @@ const HeaderBar = ({ title })  =>{
       </View>
     
     )
-
 }
+
+export default HeaderBar;
